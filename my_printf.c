@@ -130,5 +130,4 @@ void my_printf(char *src, ...)
 **	corresponde a la lettre dans le tableau de fonction.  Du  coup l'index va changer
 **	ex : i = s / i =0; i = c / i = 1
 **	On va pouvoir renvoyer a la fonction que l on veux grace a la fonction findIndex.
-**	
 */
