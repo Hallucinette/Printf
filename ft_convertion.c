@@ -171,10 +171,10 @@ void	ft_write_d(t_data *p)
 
 void		ft_write_Xx(t_data *p)
 {
-	unsigned int  adr;
-	char          *base;
-	char          res[9];
-	int           i;
+	unsigned int 	adr;
+	char         	*base;
+	char         	res[9];
+	int          	i;
 	int				len;
 	
 	adr = va_arg(p->list, unsigned int);
@@ -226,6 +226,36 @@ void		ft_write_Xx(t_data *p)
 			}
 			//ft_putstr_fd(res, 1);
 			ft_put_xX(p, res, i);
+		}
+		else
+		{
+			if (p->precision <= len)
+			{
+				p->size += len;
+				p->width -= len;
+			}
+			else
+			{
+				p->size += p->precision;
+				p->width -= p->precision; 
+			}
+			
+			if (p->minZ != 2)
+				ft_write_width(p);
+			while (p->precision > len)
+			{
+				ft_putchar_fd('0', 1);
+				p->precision--;
+			}
+			if (p->precision == 0)
+			{
+				ft_putchar_fd(' ', 1);
+				//ft_put_xX(p, res, i);
+			}
+			else
+				ft_put_xX(p, res, i);
+			if (p->minZ == 2)
+				ft_write_width(p);
 		}
 
 
