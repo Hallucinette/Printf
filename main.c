@@ -36,29 +36,33 @@ int main()
     printf("\n");
     printf("//Type Xx//\n");
     printf("Nor  : |%x|\n", 123456789);
+
     ft_printf("Nor  : |%x|\n", 123456789);
     printf("\n//Width//\n");
 
-
-    printf("R.3  : |%3X|\n", 123456789);
-    //ft_printf("F.3  : |%3X|\n", 123456789);
-    printf("R.7  : |%7x|\n", 123456789);
-    //ft_printf("F.7  : |%7x|\n", 123456789);
-    printf("R.9  : |%9x|\n", 123456789);
-    //ft_printf("F.9  : |%9x|\n", 123456789);
+    printf("\n");
+    printf("R.3  : |%3x|\n", 123456789);
+    ft_printf("F.3  : |%3X|\n", 123456789);
+    printf("R.7  : |%-7x|\n", 123456789);
+    ft_printf("F.7  : |%-7x|\n", 123456789);
+    printf("R.9  : |%-9x|\n", 123456789);
+    ft_printf("F.9  : |%-9x|\n", 123456789);
     printf("R.11 : |%11x|\n", 123456789);
-    //ft_printf("F.11 : |%11x|\n", 123456789);
+    ft_printf("F.11 : |%11x|\n", 123456789);
 
     printf("\n//precision//\n");
 
     printf("R.0  : |%.0x|\n", 123456789);
-    //ft_printf("F.0  : |%.0x|\n", 123456789);
+    ft_printf("F.0  : |%.0x|\n", 123456789);
     printf("R.1  : |%.1x|\n", 123456789);
-    //ft_printf("F.1   : |%.1x|\n", 123456789);
+    ft_printf("F.1  : |%.1x|\n", 123456789);
     printf("R.7  : |%.7x|\n", 123456789);
-    //ft_printf("F.7   : |%.9x|\n", 123456789);
+    ft_printf("F.7  : |%.9x|\n", 123456789);
     printf("R.9  : |%.10x|\n", 123456789);
-    //ft_printf("F.9   : |%.15x|\n", 123456789);
+    ft_printf("F.9  : |%.15x|\n", 123456789);
+/*
+
+*/
 
    /* printf("\n");
     printf("//Type s//\n");

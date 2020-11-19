@@ -47,6 +47,7 @@ int				ft_num_neg(t_data *p, int num);
 
 void	ft_print_pre(t_data *p, int num);
 
+void		ft_put_xX(t_data *p, char *s, int len);
 
 
 #endif
