@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+
 int		ft_num_neg(t_data *p, int num)
 {
 	ft_putchar_fd('-', 1);
@@ -169,126 +170,116 @@ void	ft_write_d(t_data *p)
 	}
 }
 
-void		ft_write_Xx(t_data *p)
-{
-	unsigned int 	adr;
-	char         	*base;
-	char         	res[9];
-	int          	i;
-	int				len;
+// void		ft_write_Xx(t_data *p)
+// {
+// 	unsigned int 	adr;
+// 	char         	*base;
+// 	char         	res[9];
+// 	int          	i;
+// 	int				len;
 	
-	adr = va_arg(p->list, unsigned int);
-	base = "0123456789abcdef";
-	i = 8;
-	while ((adr / 16) > 0) //|| i >= 8)
-	{
-    	res[i] = base[(adr % 16)];
-    	adr /= 16;
-    	i--;	
-	}
-	res[i] = base[(adr % 16)];
-	len = 9 - i;
-	//p->width -= 9 - i;
-	//p->size += 9 - i;
-
-	//if (p->width > ft_strlen(res) || )
-	// if (p->minZ != 2)
-	// 	ft_write_width(p);
-
-	if (len >= p->width && len >= p->precision)
-	{
-		if (!(p->precision == 0 && adr == 0))
-		{
-			p->size += len;
-			ft_put_xX(p, res, i);
-			/*while (i < 9)
-			{
-				if(*p->format == 'X')
-					res[i] = ft_toupper(res[i]);
-				//p->size += len;
-				//ft_putchar_fd(res[i], 1);
-				write(1, &res[i], 1);
-				i++;
-				p->size++;
-			}*/
-		}
-	}
-	else
-	{
-		if (p->precision >= len && p->precision >= p->width && p->precision > 0)
-		{
-			p->size += p->precision;
-			p->precision -= len;
-			while (p->precision > 0)
-			{
-				write(1, "0", 1);
-				p->precision--;
-			}
-			//ft_putstr_fd(res, 1);
-			ft_put_xX(p, res, i);
-		}
-		else
-		{
-			if (p->precision <= len)
-			{
-				p->size += len;
-				p->width -= len;
-			}
-			else
-			{
-				p->size += p->precision;
-				p->width -= p->precision; 
-			}
+// 	adr = va_arg(p->list, unsigned int);
+// 	base = "0123456789abcdef";
+// 	i = 8;
+// 	while ((adr / 16) > 0)
+// 	{
+//     	res[i] = base[(adr % 16)];
+//     	adr /= 16;
+//     	i--;	
+// 	}
+// 	res[i] = base[(adr % 16)];
+// 	len = 9 - i;
+// 	if (len >= p->width && len >= p->precision)
+// 	{
+// 		if (!(p->precision == 0 && adr == 0))
+// 		{
+// 			p->size += len;
+// 			ft_put_xX(p, res, i);
+// 		}
+// 	}
+// 	else
+// 	{
+// 		if (p->precision >= len && p->precision >= p->width && p->precision > 0)
+// 		{
+// 			p->size += p->precision;
+// 			p->precision -= len;
+// 			while (p->precision > 0)
+// 			{
+// 				write(1, "0", 1);
+// 				p->precision--;
+// 			}
+// 			ft_put_xX(p, res, i);
+// 		}
+// 		else
+// 		{
+// 			if (p->precision <= len)
+// 			{
+// 				p->size += len;
+// 				p->width -= len;
+// 			}
+// 			else
+// 			{
+// 				p->size += p->precision;
+// 				p->width -= p->precision; 
+// 			}
 			
-			if (p->minZ != 2)
-				ft_write_width(p);
-			while (p->precision > len)
-			{
-				ft_putchar_fd('0', 1);
-				p->precision--;
-			}
-			if (p->precision == 0)
-			{
-				ft_putchar_fd(' ', 1);
-				//ft_put_xX(p, res, i);
-			}
-			else
-				ft_put_xX(p, res, i);
-			if (p->minZ == 2)
-				ft_write_width(p);
-		}
+// 			if (p->minZ != 2)
+// 				ft_write_width(p);
+// 			while (p->precision > len)
+// 			{
+// 				ft_putchar_fd('0', 1);
+// 				p->precision--;
+// 			}
+// 			if (p->precision == 0)
+// 				ft_putchar_fd(' ', 1);
+// 			else
+// 				ft_put_xX(p, res, i);
+// 			if (p->minZ == 2)
+// 				ft_write_width(p);
+// 		}
+// 	}
+// }
 
+// int		ft_putnbr_base(int nbr, char *base, t_data *p)
+// {
+// 	int l;
+// 	int save;
 
-//SÓLO FALTA HACER LA WIDTH. LA PRECISIÓN Y LA VARIÁDICA YA FUNCIONAN BIEN
+// 	l = 1;
+// 	save = nbr;
+// 	// if (nbr < 0)
+// 	// {
+// 	// 	ft_putchar_fd('-', 1);
+// 	// 	l = -1;
+// 	//}
+// 	while (nbr <= 16 || nbr >= 16)
+// 	{
+// 		nbr /= 16;
+// 		l *= 16;
+// 	}
+// 	while (l)
+// 	{
+// 		//ft_putchar_fd(base[save / l], 1);
+// 		//= base[save / power];
+// 		p->size = l++;
+// 		save = save - (save / l) * l;
+// 		//save -= (save / l) * l;
+// 		l /= 16;
+// 	}
+// 	return (l);
+// }
 
-
-
-		/*if (p->minZ != 2)
-			ft_write_width(p);
-		while (i < 9)
-		{
-			if(*p->format == 'X')
-				res[i] = ft_toupper(res[i]);
-			//p->size += len;
-			//ft_putchar_fd(res[i], 1);
-			write(1, &res[i], 1);
-			i++;
-		}
-		if (p->minZ == 2)
-		ft_write_width(p);*/
-	}
-	
-	// while (i < 9)
+	// while (power)
 	// {
-	// 	if(*p->format == 'X')
-	// 		res[i] = ft_toupper(res[i]);
-	// 	// if (p->precision == -1 )
-	// 	// {
-	// 	write(1, &res[i], 1);
-	// 	p->size++;
-	// 	i++;
-		//}
-	//	}	
-	// if (p->minZ == 2)
-	// 	ft_write_width(p);
-}
+	// 	data->buff_nb[len++] 
+	// 	save = save - (save / power) * power;
+		
+
+// void			ft_write_p(t_data *p)
+// {
+// 	(void) *adr;
+
+// 	adr = (long)va_arg(p->list, void *);
+// 	p->size = ft_putnbr_base(adr, "0123456789abcdef", p);
+// 	printf("12");
+// }

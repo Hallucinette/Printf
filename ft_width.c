@@ -27,7 +27,7 @@ int    ft_check_wp(t_data *p)
     }
     else
     {
-        while (ft_isdigit(*p->format) == 1)
+        while (ft_isdigit(*p->format) == 1) // a rajouter doit etre  tmp < intmax
         {
             tmp *= 10;
             tmp += *p->format - 48;
@@ -98,3 +98,21 @@ void	ft_write_width(t_data *p, int len)
 
    // printf("precison : %d", p->precision);
 }/*/
+
+// int		ft_convert_base(t_data *p)
+// {
+// 	char         	*base;
+// 	int          	i;
+	
+// 	base = "0123456789abcdef";
+// 	i = 8;
+// 	while ((p->adr / 16) > 0)
+// 	{
+//     	p->res[i] = base[(p->adr % 16)];
+//     	p->adr /= 16;
+//     	i--;	
+// 	}
+// 	p->res[i] = base[(p->adr % 16)];
+// 	p->size = 9 - i;
+// 	return (i);
+// }

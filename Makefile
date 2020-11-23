@@ -2,7 +2,8 @@ NAME = libftprintf.a
 
 SRCS =	ft_printf.c \
 		ft_convertion.c \
-		ft_width.c
+		ft_width.c \
+		convertion_xX.c
 
 OBJS	:= ${SRCS:.c=.o}
 

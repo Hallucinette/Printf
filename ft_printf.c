@@ -1,5 +1,24 @@
 #include "ft_printf.h"
 
+void    ft_params0(t_data *p)
+{
+    p->precision = -1;
+    p->width = 0;
+    p->size = 0;
+    p->type = '\0'; 
+    p->minZ = 0;
+}
+void	ft_check_flags(t_data *p)
+{
+    while ((*p->format == '0' || *p->format == '-') && p->minZ != 2)
+    {
+        if(*p->format == '0' )
+            p->minZ = 1;
+        else
+            p->minZ = 2;
+        p->format++;
+    }
+} 
 
 void	ft_check_t(t_data *p)
 {
@@ -12,21 +31,10 @@ void	ft_check_t(t_data *p)
         if (*p->format == 's')
          	ft_write_s(p);
         // if (*p->format == 'p')
-        // 	ft_write_p(p);    
+        	// ft_write_p(p);    
     (p->format)++;
 }
 
-void	ft_check_flags(t_data *p)
-{
-    while ((*p->format == '0' || *p->format == '-') && p->minZ != 2)
-    {
-        if(*p->format == '0' )
-            p->minZ = 1;
-        else
-            p->minZ = 2;
-        p->format++;
-    }
-} 
 
 void     ft_check_line(t_data *p)
 {
@@ -42,14 +50,6 @@ void     ft_check_line(t_data *p)
     ft_check_t(p);
 }
 
-void    ft_params0(t_data *p)
-{
-    p->precision = -1;
-    p->width = 0;
-    p->size = 0;
-    p->type = '\0'; 
-    p->minZ = 0;       
-}
 int     ft_printf(const char *format, ...)
 {
     t_data	p;
@@ -77,3 +77,5 @@ int     ft_printf(const char *format, ...)
     va_end(p.list);
     return (size);
 }
+
+// modifier le size en p->size. ne sert a rien.
