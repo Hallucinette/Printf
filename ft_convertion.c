@@ -9,16 +9,20 @@ int		ft_num_neg(t_data *p, int num)
 	return (num);
 }
 
-void		ft_put_xX(t_data *p, char *s, int i)
+void		ft_put_xX(t_data *p, int len)
 {
-	while (i < 9)
+	int i;
+
+	i = 0;
+	if(*p->format == 'X')
 	{
-		if(*p->format == 'X')
-			s[i] = ft_toupper(s[i]);
-		write(1, &s[i], 1);
-		i++;
-		//p->size++;
+		while (p->resp[i])
+		{
+			p->resp[i] = ft_toupper(p->resp[i]);
+			i++;
+		}
 	}
+	write(1, &(p->resp), len);
 }
 
 void		ft_write_c(t_data *p)
@@ -30,7 +34,10 @@ void		ft_write_c(t_data *p)
 		p->width--;
 	if (p->minZ != 2)
 		ft_write_width(p);
-	write(1, &c, 1);
+	if (*p->format == '%')
+		write(1, "%", 1);
+	else
+		write(1, &c, 1);
 	p->size++;
 	if (p->minZ == 2)
 		ft_write_width(p);
@@ -38,9 +45,9 @@ void		ft_write_c(t_data *p)
 
 void		ft_write_s(t_data *p)
 {
- 	char  *string;
-	int i;
-	int len;
+ 	char	*string;
+	int		i;
+	int		len;
 
 	string = va_arg(p->list, char *);
 	i = 0;
@@ -116,10 +123,10 @@ void	ft_write_d(t_data *p)
 	int  num;
 	num = va_arg(p->list, int);
 	
-    if (*p->format == 'u' && num < 0)
+	if (*p->format == 'u' && num < 0)
 	{
-		p->size = 10;
-        write(1, "4294967295", 10);
+		p->size += 10;
+		write(1, "4294967295", 10);
 	}
 	else
 	{
@@ -169,117 +176,3 @@ void	ft_write_d(t_data *p)
 		}
 	}
 }
-
-// void		ft_write_Xx(t_data *p)
-// {
-// 	unsigned int 	adr;
-// 	char         	*base;
-// 	char         	res[9];
-// 	int          	i;
-// 	int				len;
-	
-// 	adr = va_arg(p->list, unsigned int);
-// 	base = "0123456789abcdef";
-// 	i = 8;
-// 	while ((adr / 16) > 0)
-// 	{
-//     	res[i] = base[(adr % 16)];
-//     	adr /= 16;
-//     	i--;	
-// 	}
-// 	res[i] = base[(adr % 16)];
-// 	len = 9 - i;
-// 	if (len >= p->width && len >= p->precision)
-// 	{
-// 		if (!(p->precision == 0 && adr == 0))
-// 		{
-// 			p->size += len;
-// 			ft_put_xX(p, res, i);
-// 		}
-// 	}
-// 	else
-// 	{
-// 		if (p->precision >= len && p->precision >= p->width && p->precision > 0)
-// 		{
-// 			p->size += p->precision;
-// 			p->precision -= len;
-// 			while (p->precision > 0)
-// 			{
-// 				write(1, "0", 1);
-// 				p->precision--;
-// 			}
-// 			ft_put_xX(p, res, i);
-// 		}
-// 		else
-// 		{
-// 			if (p->precision <= len)
-// 			{
-// 				p->size += len;
-// 				p->width -= len;
-// 			}
-// 			else
-// 			{
-// 				p->size += p->precision;
-// 				p->width -= p->precision; 
-// 			}
-			
-// 			if (p->minZ != 2)
-// 				ft_write_width(p);
-// 			while (p->precision > len)
-// 			{
-// 				ft_putchar_fd('0', 1);
-// 				p->precision--;
-// 			}
-// 			if (p->precision == 0)
-// 				ft_putchar_fd(' ', 1);
-// 			else
-// 				ft_put_xX(p, res, i);
-// 			if (p->minZ == 2)
-// 				ft_write_width(p);
-// 		}
-// 	}
-// }
-
-// int		ft_putnbr_base(int nbr, char *base, t_data *p)
-// {
-// 	int l;
-// 	int save;
-
-// 	l = 1;
-// 	save = nbr;
-// 	// if (nbr < 0)
-// 	// {
-// 	// 	ft_putchar_fd('-', 1);
-// 	// 	l = -1;
-// 	//}
-// 	while (nbr <= 16 || nbr >= 16)
-// 	{
-// 		nbr /= 16;
-// 		l *= 16;
-// 	}
-// 	while (l)
-// 	{
-// 		//ft_putchar_fd(base[save / l], 1);
-// 		//= base[save / power];
-// 		p->size = l++;
-// 		save = save - (save / l) * l;
-// 		//save -= (save / l) * l;
-// 		l /= 16;
-// 	}
-// 	return (l);
-// }
-
-	// while (power)
-	// {
-	// 	data->buff_nb[len++] 
-	// 	save = save - (save / power) * power;
-		
-
-// void			ft_write_p(t_data *p)
-// {
-// 	(void) *adr;
-
-// 	adr = (long)va_arg(p->list, void *);
-// 	p->size = ft_putnbr_base(adr, "0123456789abcdef", p);
-// 	printf("12");
-// }

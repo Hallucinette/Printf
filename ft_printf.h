@@ -12,15 +12,13 @@
 
 typedef struct	s_data
 {
-	int	minZ;
+	int		minZ;
 	char 	type;
 	char	*format;
 	int		width;
 	int		size;
 	int		precision;
-	char	res[9];
-	int		reslen;
-	unsigned int 	adr;
+	char	resp[16];
 	va_list	list;
 }				t_data;
 
@@ -31,6 +29,7 @@ void			ft_write_c(t_data *p);
 void			ft_write_s(t_data *p);
 void			ft_write_d(t_data *p);
 void			ft_write_Xx(t_data *p);
+void			ft_write_p(t_data *p);
 
 
 void     		ft_check_line(t_data *p);
@@ -46,9 +45,12 @@ int				ft_check_wp(t_data *p);
 int				ft_num_neg(t_data *p, int num);
 
 void			ft_print_pre(t_data *p, int num);
-int				ft_putnbr_base(int nbr, char *base, t_data *p);
+// int				ft_putnbr_base(int nbr, char *base, t_data *p);
+int	putnbr_base(unsigned long nbr, char *base, t_data *p);
 
-void			ft_put_xX(t_data *p, char *s, int len);
+// int				ft_convert_base(t_data *p);
+
+void			ft_put_xX(t_data *p, int len);
 
 
 #endif

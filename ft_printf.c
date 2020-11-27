@@ -26,12 +26,12 @@ void	ft_check_t(t_data *p)
             ft_write_d(p);
         if (*p->format == 'X' || *p->format == 'x')
             ft_write_Xx(p);
-        if (*p->format == 'c')
+        if (*p->format == 'c' || *p->format == '%')
         	ft_write_c(p);
         if (*p->format == 's')
          	ft_write_s(p);
-        // if (*p->format == 'p')
-        	// ft_write_p(p);    
+        if (*p->format == 'p')
+        	ft_write_p(p);    
     (p->format)++;
 }
 
@@ -50,6 +50,31 @@ void     ft_check_line(t_data *p)
     ft_check_t(p);
 }
 
+
+// int     ft_printf(const char *format, ...)
+// {
+//     t_data	p;
+
+//     p.size = 0;
+//     ft_params0(&p);
+//     va_start(p.list, format);
+//     p.format = (char *)format;
+//     while (*p.format != '\0')
+//     {
+//         if(*p.format == '%')
+//             ft_check_line(&p);
+//         else
+//         {
+//             ft_putchar_fd(*p.format, 1);
+//             p.size++;
+//             p.format++;
+//         }
+//     }
+//     va_end(p.list);
+//     return (p.size);
+// }
+
+
 int     ft_printf(const char *format, ...)
 {
     t_data	p;
@@ -61,7 +86,6 @@ int     ft_printf(const char *format, ...)
     p.format = (char *)format;
     while (*p.format != '\0')
     {
-
         if(*p.format == '%')
         {
             ft_check_line(&p);

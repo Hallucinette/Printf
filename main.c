@@ -6,9 +6,9 @@ int main()
     int b = 100;
     int c = 7;
     char *s = "hola";
+    int ret_1 = 0;
+    int ret_2 = 0;
 
-    printf("R.. : %2147483646d\n", b);
-    printf("R.. : %5d\n", b);
     // ft_printf("F.. : %108548603685085d\n", b);
    // double c = 333.33;
 
@@ -40,9 +40,11 @@ int main()
 
     // printf("\n");
     // printf("//Type Xx//\n");
-    // printf("Nor  : |%x|\n", 123456789);
+    // ret_1 = printf("R  : |%x|\n", 255);
+    // printf("Ret  : %d\n", ret_1);
 
-    // ft_printf("Nor  : |%x|\n", 123456789);
+    // ret_2 = ft_printf("f  : |%x|\n", 255);
+    // printf("Ret  : %d\n", ret_2);
     // printf("\n//Width//\n");
 
     // printf("\n");
@@ -114,8 +116,17 @@ int main()
 
   // printf("//// NORMAL ////");
   // printf("\n");
-  // printf("R. : %p\n", a);
-  // ft_printf("F. : %p\n", a);
+  // printf("R. : %6p\n", &a);
+  // printf("R. : %20p\n", &a);
+  // printf("R. : %p\n", &s);
+  // ft_printf("F. : %p\n", &s);
+
+  printf("%.p\n", '!');
+  ft_printf("%.p\n", '!');
+  // printf("%.3p\n", 1);
+  // ft_printf("%.3p\n", 1);
+  printf("%.0p\n", 0);
+  ft_printf("%.0p\n", 0);
 
     //printf("//// WITH ////");
     // printf("\n");
