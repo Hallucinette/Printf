@@ -1,13 +1,15 @@
+#include <stdio.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 int main()
 {
+  int ret_1 = 0;
+	int ret_2 = 0;
     char a = 'a';
     int b = 100;
     int c = 7;
     char *s = "hola";
-    int ret_1 = 0;
-    int ret_2 = 0;
 
     // ft_printf("F.. : %108548603685085d\n", b);
    // double c = 333.33;
@@ -121,12 +123,23 @@ int main()
   // printf("R. : %p\n", &s);
   // ft_printf("F. : %p\n", &s);
 
-  printf("%.p\n", '!');
-  ft_printf("%.p\n", '!');
-  // printf("%.3p\n", 1);
-  // ft_printf("%.3p\n", 1);
-  printf("%.0p\n", 0);
-  ft_printf("%.0p\n", 0);
+//   ret_1 = printf("R |%9.2p/\n/", 1234);
+//   ret_2 = ft_printf("F |%9.2p
+// ", 1234);
+
+  // ret_1 = printf("%%d 0000042 == |%d|", 0000011);
+  //  	printf("\n");
+  // ret_2 = ft_printf("%%d 0000042 == |%d|", 0000011);
+  //    	printf("\n");
+ 	// printf("%d | %d\n\n", ret_1, ret_2);
+  // ft_printf("F |%05p|\n", 0);
+  // printf("R |%5p|\n", 0);
+  // ft_printf("F |%5p|\n", 0);
+  // // printf("%.3p\n", 1);
+  // // ft_printf("%.3p\n", 1);
+  // printf("R |%-5p|\n", 0);
+  // ft_printf("F |%-5p|\n", 0);
+  //ft_printf("|%-3p|\n", 0);
 
     //printf("//// WITH ////");
     // printf("\n");
@@ -154,5 +167,34 @@ int main()
     //ft_printf("falso : %d\n", c);
     //ft_printf("falso : %i\n", c);
     //system("leaks a.out");
+
+
+
+//int w = 15, p = -7, nb = 4568;
+  //   ret_1 = printf(".14 {%*.*u}  .15 {%0*.*u}  .16 {%-*.*u}  .17 {%-0*.*u}\n", w, p, nb, w, p, nb, w, p, nb, w, p, nb);
+	// ret_2 = ft_printf(".14 {%*.*u}  .15 {%0*.*u}  .16 {%-*.*u}  .17 {%-0*.*u}\n", w, p, nb, w, p, nb, w, p, nb, w, p, nb);
+	// if (ret_1 == ret_2)
+	// 	printf("Good !!! %d | %d\n\n", ret_1, ret_2);
+	// else
+	// 	printf("🖕 FUCK YOU BITCH 🖕\n %d | %d\n\n", ret_1, ret_2);
+
+printf("Il fait au moins %u", -3);
+printf("\n");
+ft_printf("Il fait au moins %u", -3);
+printf("\n");
+printf("%u", -4);
+printf("\n");
+ft_printf("%u", -4);
+printf("\n");
+
+printf("%u", INT_MIN);
+printf("\n");
+ft_printf("%u", INT_MIN);
+printf("\n");
+
+printf("%u", INT_MAX + 1);
+printf("\n");
+ft_printf("%u", INT_MAX + 1);
+//\n
     return(0);
 }

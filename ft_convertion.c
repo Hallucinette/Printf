@@ -4,8 +4,7 @@ int		ft_num_neg(t_data *p, int num)
 {
 	ft_putchar_fd('-', 1);
 	p->size++;
-	//p->width--;
-	num *= -1;
+        	num *= -1;
 	return (num);
 }
 
@@ -25,11 +24,29 @@ void		ft_put_xX(t_data *p, int len)
 	write(1, &(p->resp), len);
 }
 
+// void		ft_write_c(t_data *p)
+// {
+// 	char	c;
+	
+// 	c = va_arg(p->list, int);
+// 	if (p->width > 0)
+// 		p->width--;
+// 	if (p->minZ != 2)
+// 		ft_write_width(p);
+// 	if (*p->format == '%')
+// 		write(1, "%", 1);
+// 	else
+// 		write(1, &c, 1);
+// 	p->size++;
+// 	if (p->minZ == 2)
+// 		ft_write_width(p);
+// }
+
+// 
 void		ft_write_c(t_data *p)
 {
 	char	c;
-	
-	c = va_arg(p->list, int);
+
 	if (p->width > 0)
 		p->width--;
 	if (p->minZ != 2)
@@ -37,7 +54,10 @@ void		ft_write_c(t_data *p)
 	if (*p->format == '%')
 		write(1, "%", 1);
 	else
+	{
+		c = va_arg(p->list, int);
 		write(1, &c, 1);
+	}
 	p->size++;
 	if (p->minZ == 2)
 		ft_write_width(p);
@@ -59,7 +79,7 @@ void		ft_write_s(t_data *p)
 		string = "(null)";
 		len = ft_strlen(string);
 	}
-	if (len >= p->width && (len <= p->precision || p->precision == -1))
+	if (len >= p->width && (len <= p->precision || p->precision < 0))
 	{
 		ft_putstr_fd(string, 1);
 		p->size += len;
@@ -103,7 +123,7 @@ void		ft_write_s(t_data *p)
 	}
 }
 
-void	ft_print_pre(t_data *p, int num)
+void	ft_print_pre(t_data *p, long int num)
 {
 	if (num < 0)
 		num = ft_num_neg(p, num);
@@ -138,6 +158,7 @@ void	ft_write_d(t_data *p)
 					ft_putnbr_fd(num, 1);
 				}
 			}
+		//	num = 42 | width == 19 | p == 14
 		else
 		{
 			if(p->precision >= p->width)
@@ -145,15 +166,15 @@ void	ft_write_d(t_data *p)
 			else
 			{
 				if (ft_intlen(num) > p->precision && 
-						!(p->precision == 0 && num == 0))
-					p->width = (p->width - ft_intlen(num));
+					!(p->precision == 0 && num == 0))
+						p->width = (p->width - ft_intlen(num));  //??
 				else
 				{
-					p->width = (p->width - p->precision);
+					p->width = (p->width - p->precision); // 5
 					if (num < 0)
-						p->width--;	
+						p->width--;
 				}
-				if (p->minZ != 2)
+				if (p->minZ != 2)  // si != ' '
 				{
 					if (num < 0 && p->minZ == 1 && p->precision == -1)
 						num = ft_num_neg(p, num);

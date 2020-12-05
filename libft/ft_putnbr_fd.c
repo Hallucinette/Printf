@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 22:40:04 by amepocch          #+#    #+#             */
-/*   Updated: 2019/12/12 01:33:58 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/02 00:33:45 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(long int n, int fd)
 {
 	int l;
-	int save;
+	long int save;
 
 	l = 1;
 	save = n;

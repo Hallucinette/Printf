@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 01:28:17 by amepocch          #+#    #+#             */
-/*   Updated: 2019/12/13 06:20:43 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/02 00:34:18 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			ft_bzero(void *s, size_t n);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(long int n, int fd);
 void			*ft_memset(void *b, int c, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_calloc(size_t count, size_t size);

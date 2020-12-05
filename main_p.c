@@ -6,7 +6,7 @@
 /*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:15:19 by vserra            #+#    #+#             */
-/*   Updated: 2020/11/26 13:40:44 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/11/29 00:45:38 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,72 +28,86 @@ int main()
 	// UINT_MAX 4294967295
 
 
-/* SIMPLE TESTS --------------------------------- */
+// /* SIMPLE TESTS --------------------------------- */
 
-	printf("\n\n* TYPE P ------------------------- *\n");
+// 	printf("\n\n* TYPE P ------------------------- *\n");
 
-	printf("\n* BLOC 0 - Just p & flags *\n\n");
+// 	printf("\n* BLOC 0 - Just p & flags *\n\n");
 
-	ret_1 = printf("{%p}\n", str);
-	ret_2 = ft_printf("{%p}\n", str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%0p}\n", str);
-	ret_2 = ft_printf("{%0p}\n", str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%-p}\n", str);
-	ret_2 = ft_printf("{%-p}\n", str);
-	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%p}\n", str);
+// 	ret_2 = ft_printf("{%p}\n", str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%0p}\n", str);
+// 	ret_2 = ft_printf("{%0p}\n", str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%-p}\n", str);
+// 	ret_2 = ft_printf("{%-p}\n", str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
 
-	printf("\n* BLOC 1 - Just width *\n\n");
+// 	printf("\n* BLOC 1 - Just width *\n\n");
 
-	ret_1 = printf("{%*p}\n", w, str);
-	ret_2 = ft_printf("{%*p}\n", w, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%-*p}\n", w, str);
-	ret_2 = ft_printf("{%-*p}\n", w, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%0*p}\n", w, str);
-	ret_2 = ft_printf("{%0*p}\n", w, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%*p}\n", w, str);
+// 	ret_2 = ft_printf("{%*p}\n", w, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%-*p}\n", w, str);
+// 	ret_2 = ft_printf("{%-*p}\n", w, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%0*p}\n", w, str);
+// 	ret_2 = ft_printf("{%0*p}\n", w, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
 
-	printf("\n\n* BLOC 2 - Width & Precision = 0 *\n\n");
+// 	printf("\n\n* BLOC 2 - Width & Precision = 0 *\n\n");
 
-	ret_1 = printf("{%.p}\n", str);
-	ret_2 = ft_printf("{%.p}\n", str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%*.p}\n", w, str);
-	ret_2 = ft_printf("{%*.p}\n", w, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%0*.p}\n", w, str);
-	ret_2 = ft_printf("{%0*.p}\n", w, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%-*.p}\n", w, str);
-	ret_2 = ft_printf("{%-*.p}\n", w, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%.p}\n", str);
+// 	ret_2 = ft_printf("{%.p}\n", str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%*.p}\n", w, str);
+// 	ret_2 = ft_printf("{%*.p}\n", w, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%0*.p}\n", w, str);
+// 	ret_2 = ft_printf("{%0*.p}\n", w, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%-*.p}\n", w, str);
+// 	ret_2 = ft_printf("{%-*.p}\n", w, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
 
-	printf("\n\n* BLOC 3 - Just precision *\n\n");
+// 	printf("\n\n* BLOC 3 - Just precision *\n\n");
 
-	ret_1 = printf("{%.*p}\n", p, str);
-	ret_2 = ft_printf("{%.*p}\n", p, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%-.*p}\n", p, str);
-	ret_2 = ft_printf("{%-.*p}\n", p, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%0.*p}\n", p, str);
-	ret_2 = ft_printf("{%0.*p}\n", p, str);
-	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%.*p}\n", p, str);
+// 	ret_2 = ft_printf("{%.*p}\n", p, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%-.*p}\n", p, str);
+// 	ret_2 = ft_printf("{%-.*p}\n", p, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%0.*p}\n", p, str);
+// 	ret_2 = ft_printf("{%0.*p}\n", p, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
 
-	printf("\n\n* BLOC 4 - Width & Precision *\n\n");
+// 	printf("\n\n* BLOC 4 - Width & Precision *\n\n");
 	
-	ret_1 = printf("{%*.*p}\n", w, p, str);
-	ret_2 = ft_printf("{%*.*p}\n", w, p, str);
+// 	ret_1 = printf("{%*.*p}\n", w, p, str);
+// 	ret_2 = ft_printf("{%*.*p}\n", w, p, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%-*.*p}\n", w, p, str);
+// 	ret_2 = ft_printf("{%-*.*p}\n", w, p, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+// 	ret_1 = printf("{%0*.*p}\n", w, p, str);
+// 	ret_2 = ft_printf("{%0*.*p}\n", w, p, str);
+// 	printf("%d | %d\n\n", ret_1, ret_2);
+
+
+
+
+	ret_1 = printf("%9.1p\n", 1234);
+	ret_2 = ft_printf("%9.1p\n", 1234);
 	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%-*.*p}\n", w, p, str);
-	ret_2 = ft_printf("{%-*.*p}\n", w, p, str);
+	ret_1 = printf("%9.2p\n", 1234);
+	ret_2 = ft_printf("%9.2p\n", 1234);
 	printf("%d | %d\n\n", ret_1, ret_2);
-	ret_1 = printf("{%0*.*p}\n", w, p, str);
-	ret_2 = ft_printf("{%0*.*p}\n", w, p, str);
+	ret_1 = printf("%9.3p\n", 1234);
+	ret_2 = ft_printf("%9.3p\n", 1234);
 	printf("%d | %d\n\n", ret_1, ret_2);
+
 
 	printf("\n😎\n");
 	return 0;

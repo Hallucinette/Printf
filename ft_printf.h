@@ -13,7 +13,8 @@
 typedef struct	s_data
 {
 	int		minZ;
-	char 	type;
+	int		dot;
+	char	type;
 	char	*format;
 	int		width;
 	int		size;
@@ -30,6 +31,7 @@ void			ft_write_s(t_data *p);
 void			ft_write_d(t_data *p);
 void			ft_write_Xx(t_data *p);
 void			ft_write_p(t_data *p);
+void			ft_write_u(t_data *p);
 
 
 void     		ft_check_line(t_data *p);
@@ -40,11 +42,11 @@ void			ft_write_width_c(t_data *p, char *c);
 void			ft_write_width(t_data *p);
 
 int				ft_printf(const char *src, ...);
-int				ft_intlen(int n);
+int				ft_intlen(long int n);
 int				ft_check_wp(t_data *p);
 int				ft_num_neg(t_data *p, int num);
 
-void			ft_print_pre(t_data *p, int num);
+void			ft_print_pre(t_data *p, long int num);
 // int				ft_putnbr_base(int nbr, char *base, t_data *p);
 int	putnbr_base(unsigned long nbr, char *base, t_data *p);
 
