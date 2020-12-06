@@ -109,7 +109,7 @@ int main()
 //    printf("ast|%4.2d|\n", -55);
 //    printf("ast|%-7.*d|\n", 5, 5);
 //    printf("ast|%-7.*d|\n", 5, -5);
-//    ft_printf("ast|%-*d|\n", 3, 5); 
+//    ft_printf("ast|%-*d|\n", 3, 5);
 
 
   // printf("ast|%*.*d|\n", 5, 3, 13);
@@ -178,23 +178,27 @@ int main()
 	// else
 	// 	printf("🖕 FUCK YOU BITCH 🖕\n %d | %d\n\n", ret_1, ret_2);
 
-printf("Il fait au moins %u", -3);
-printf("\n");
-ft_printf("Il fait au moins %u", -3);
-printf("\n");
-printf("%u", -4);
-printf("\n");
-ft_printf("%u", -4);
-printf("\n");
+// printf("Il fait au moins %u", -3);
+// printf("\n");
+// ft_printf("Il fait au moins %u", -3);
+// printf("\n");
+// printf("%u", -4);
+// printf("\n");
+// ft_printf("%u", -4);
+// printf("\n");
 
-printf("%u", INT_MIN);
-printf("\n");
-ft_printf("%u", INT_MIN);
-printf("\n");
+// printf("%u", INT_MIN);
+// printf("\n");
+// ft_printf("%u", INT_MIN);
+// printf("\n");
 
-printf("%u", INT_MAX + 1);
-printf("\n");
-ft_printf("%u", INT_MAX + 1);
+// printf("%u", INT_MAX + 1);
+// printf("\n");
+// ft_printf("%u", INT_MAX + 1);
 //\n
+
+	ret_1 = printf("{%0*.*p}\n", w, p, str);
+	ret_2 = ft_printf("{%0*.*p}\n", w, p, str);
+	printf("%d | %d\n\n", ret_1, ret_2);
     return(0);
 }

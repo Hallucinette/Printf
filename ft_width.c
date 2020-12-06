@@ -28,22 +28,11 @@ int    ft_check_wp(t_data *p)
             p->minZ = 2;
             tmp *= -1;
         }
-        //     printf("min0: %d\n", p->minZ);
-        /*
-        if (tmp < 0)
-        {
-            if (p->dot == 0)
-            p->minZ = 2;
-            tmp *= -1;
-        }
-        */
-        // if (tmp < 0 && p->dot == 1)
-        //     tmp = 0;
         p->format++;
     }
     else
     {
-        while (ft_isdigit(*p->format) == 1) // && tmp < 2147483647) // a rajouter doit etre  tmp < intmax
+        while (ft_isdigit(*p->format) == 1)
         {
             tmp *= 10;
             tmp += *p->format - 48;
@@ -58,10 +47,25 @@ void	ft_write_width(t_data *p)
     p->size += p->width;
     while(p->width > 0)
     {
-        if (p->minZ == 1 && p->precision < 0)
+        if (p->minZ == 1 && (p->precision < 0 || *p->format == 's')) // avant < 0
             ft_putchar_fd('0', 1);
         else
             ft_putchar_fd(' ', 1);
         p->width--;
     }
+}
+
+void	ft_print_pre(t_data *p, long int num)
+{
+	if (num < 0)
+		num = ft_num_neg(p, num);
+	p->precision = p->precision - ft_intlen(num);
+	while(p->precision > 0)
+	{
+		p->size++;
+		ft_putchar_fd('0', 1);
+		p->precision--;
+	}
+	p->size += ft_intlen(num);
+	ft_putnbr_fd(num, 1);
 }

@@ -8,7 +8,6 @@
  #include <stdarg.h>
  # include "./libft/libft.h"
 
-//structure
 
 typedef struct	s_data
 {
@@ -38,7 +37,6 @@ void     		ft_check_line(t_data *p);
 void			ft_check_t(t_data *p);
 void			ft_check_flags(t_data *p);
 
-void			ft_write_width_c(t_data *p, char *c);
 void			ft_write_width(t_data *p);
 
 int				ft_printf(const char *src, ...);
@@ -47,11 +45,7 @@ int				ft_check_wp(t_data *p);
 int				ft_num_neg(t_data *p, int num);
 
 void			ft_print_pre(t_data *p, long int num);
-// int				ft_putnbr_base(int nbr, char *base, t_data *p);
-int	putnbr_base(unsigned long nbr, char *base, t_data *p);
-
-// int				ft_convert_base(t_data *p);
-
+int				putnbr_base(unsigned long nbr, char *base, t_data *p);
 void			ft_put_xX(t_data *p, int len);
 
 

@@ -6,7 +6,7 @@ void    ft_params0(t_data *p)
     p->dot = 0;
     p->width = 0;
     p->size = 0;
-    p->type = '\0'; 
+    p->type = '\0';
     p->minZ = 0;
 }
 void	ft_check_flags(t_data *p)
@@ -16,17 +16,14 @@ void	ft_check_flags(t_data *p)
         if(*p->format == '0' && p->minZ != 2)
             p->minZ = 1;
         else
-        {
-            //printf("0000");
-            p->minZ = 2; //== '-'
-        }
+            p->minZ = 2;
         p->format++;
     }
-} 
+}
 
 void	ft_check_t(t_data *p)
 {
-    if (*p->format == 'd' || *p->format == 'i' )//|| *p->format == 'u')
+    if (*p->format == 'd' || *p->format == 'i' )
         ft_write_d(p);
     else if (*p->format == 'u')
         ft_write_u(p);
@@ -78,7 +75,6 @@ int     ft_printf(const char *format, ...)
             ft_putchar_fd(*p.format, 1);
             size++;
             p.format++;
-            //printf("bien");
         }
     }
     va_end(p.list);
