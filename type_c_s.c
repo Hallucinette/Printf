@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_c_s.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/07 01:01:55 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/08 21:57:37 by amepocch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void		ft_write_c(t_data *p)
@@ -46,36 +58,33 @@ void		ft_write_s(t_data *p)
 		if (p->precision >= 0 && p->precision < len && p->precision >= p->width)
 		{
 			while (p->precision > i)
-			{
-				ft_putchar_fd(string[i], 1);
-				i++;
-			}
+				ft_putchar_fd(string[i++], 1);
 			p->size += p->precision;
 		}
 		else
-		{
-			if (p->precision < len && p->precision >= 0) //%022.9   len = 13
-				p->width -= p->precision; // width == 13;
-			else
-				p->width = (p->width - len); // width == ;
-			if (p->minZ != 2)
-				ft_write_width(p);
-			if (p->precision < len && p->precision >= 0)
-			{
-				while (p->precision > i)
-				{
-					ft_putchar_fd(string[i], 1);
-					i++;
-				}
-				p->size += p->precision;
-			}
-			else
-			{
-				ft_putstr_fd(string, 1);
-				p->size += len;
-			}
-			if (p->minZ == 2)
-				ft_write_width(p);
-		}
+			ft_write_s2(p, len, i, string);
 	}
+}
+
+void		ft_write_s2(t_data *p, int len, int i, char *string)
+{
+	if (p->precision < len && p->precision >= 0)
+		p->width -= p->precision;
+	else
+		p->width = (p->width - len);
+	if (p->minZ != 2)
+		ft_write_width(p);
+	if (p->precision < len && p->precision >= 0)
+	{
+		while (p->precision > i)
+			ft_putchar_fd(string[i++], 1);
+		p->size += p->precision;
+	}
+	else
+	{
+		ft_putstr_fd(string, 1);
+		p->size += len;
+	}
+	if (p->minZ == 2)
+		ft_write_width(p);
 }

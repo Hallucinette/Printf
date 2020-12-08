@@ -42,116 +42,126 @@ void			ft_write_p(t_data *p)
 		}
 	}
 	else
-	{
-		if (p->precision >= p->width)
-		{
-			write(1, "0x", 2);
-			p->size += 2;
-			p->precision -= len;
-			p->size += p->precision;
-			while (p->precision > 0)
-			{
-				ft_putchar_fd('0', 1);
-				p->precision--;
-			}
-			write(1, &(p->resp), len);
-			p->size += len;
-		}
-		else
-		{
-			p->width -= 2;
-			if (p->precision >= len + 2)
-			{
-				p->width -= p->precision;
-				if(p->minZ == 1)
-				p->minZ = 0;
-			}
-			else
-			{
-				if (!(p->precision == 0 && addr == 0))
-					p->width -= len;
-			}
-			if (p->minZ == 1 && p->precision != 0)
-				write(1, "0x", 2);
-			if (p->minZ != 2)
-			{
-				ft_write_width(p);
-			}
-			if (p->minZ != 1 || p->precision == 0)
-				write(1, "0x", 2);
-			p->size += 2;
-			if (p->precision > len)
-			{
-				p->precision -= len;
-				p->size += p->precision;
-				while (p->precision > 0)
-				{
-					ft_putchar_fd('0', 1);
-					p->precision--;
-				}
-				p->precision++;
-			}
-			if (!(p->precision == 0 && addr == 0))
-			{
-				write(1, &(p->resp), len);
-				p->size += len;
-			}
-			if (p->minZ == 2)
-			{
-				ft_write_width(p);
-			}
-		}
-	}
+		ft_write_p2(p, len, addr);
 }
 
-void	ft_write_u(t_data *p)
+void			ft_write_p2(t_data *p, int len, long addr)
 {
-	unsigned int  num;
-	int  nb;
-	nb = va_arg(p->list, int);
-
-	if (nb < 0)
-		num = 4294967295 + nb + 1;
-	else
-		num = nb;
-
-	if (ft_intlen(num) >= p->width && ft_intlen(num) >= p->precision)
+	if (p->precision >= p->width)
 	{
-		if (!(p->precision == 0 && num == 0))
+		write(1, "0x", 2);
+		p->size += 2;
+		p->precision -= len;
+		p->size += p->precision;
+		while (p->precision > 0)
 		{
-			p->size += ft_intlen(num);
-			ft_putnbr_fd(num, 1);
+			ft_putchar_fd('0', 1);
+			p->precision--;
 		}
+		write(1, &(p->resp), len);
+		p->size += len;
 	}
 	else
+		ft_write_p3(p, len, addr);
+}
+
+void			ft_write_p3(t_data *p, int len, long addr)
+{
+	if (p->precision <= p->width)
 	{
-		if(p->precision >= p->width)
-			ft_print_pre(p, num);
+		p->width -= 2;
+		if (p->precision >= len + 2)
+		{
+			p->width -= p->precision;
+			if(p->minZ == 1)
+			p->minZ = 0;
+		}
 		else
 		{
-			if (ft_intlen(num) > p->precision &&
-					!(p->precision == 0 && num == 0))
-				p->width = (p->width - ft_intlen(num));
-			else
-			{
-				p->width = (p->width - p->precision);
-				if (num < 0)
-					p->width--;
-			}
-			if (p->minZ != 2)
-				ft_write_width(p);
-			if (p->precision > 0)
-				ft_print_pre(p, num);
-			else
-			{
-				if (!(p->precision == 0 && num == 0))
-				{
-					ft_putnbr_fd(num, 1);
-					p->size += ft_intlen(num);
-				}
-			}
-			if (p->minZ == 2)
-				ft_write_width(p);
+			if (!(p->precision == 0 && addr == 0))
+				p->width -= len;
 		}
+		if (p->minZ == 1 && p->precision != 0)
+			write(1, "0x", 2);
+		if (p->minZ != 2)
+			ft_write_width(p);
+		ft_write_p4(p, len, addr);
 	}
 }
+
+
+void			ft_write_p4(t_data *p, int len, long addr)
+{
+	if (p->minZ != 1 || p->precision == 0)
+		write(1, "0x", 2);
+	p->size += 2;
+	if (p->precision > len)
+	{
+		p->precision -= len;
+		p->size += p->precision;
+		while (p->precision > 0)
+		{
+			ft_putchar_fd('0', 1);
+			p->precision--;
+		}
+		p->precision++;
+	}
+	if (!(p->precision == 0 && addr == 0))
+	{
+		write(1, &(p->resp), len);
+		p->size += len;
+	}
+	if (p->minZ == 2)
+		ft_write_width(p);
+}
+
+// void	ft_write_u(t_data *p)
+// {
+// 	unsigned int  num;
+// 	int  nb;
+// 	nb = va_arg(p->list, int);
+
+// 	if (nb < 0)
+// 		num = 4294967295 + nb + 1;
+// 	else
+// 		num = nb;
+// 	if (ft_intlen(num) >= p->width && ft_intlen(num) >= p->precision)
+// 	{
+// 		if (!(p->precision == 0 && num == 0))
+// 		{
+// 			p->size += ft_intlen(num);
+// 			ft_putnbr_fd(num, 1);
+// 		}
+// 	}
+// 	else
+// 	{
+// 		if(p->precision >= p->width)
+// 			ft_print_pre(p, num);
+// 		else
+// 		{
+// 			if (ft_intlen(num) > p->precision &&
+// 					!(p->precision == 0 && num == 0))
+// 				p->width = (p->width - ft_intlen(num));
+// 			else
+// 			{
+// 				p->width = (p->width - p->precision);
+// 				if (num < 0)
+// 					p->width--;
+// 			}
+// 			if (p->minZ != 2)
+// 				ft_write_width(p);
+// 			if (p->precision > 0)
+// 				ft_print_pre(p, num);
+// 			else
+// 			{
+// 				if (!(p->precision == 0 && num == 0))
+// 				{
+// 					ft_putnbr_fd(num, 1);
+// 					p->size += ft_intlen(num);
+// 				}
+// 			}
+// 			if (p->minZ == 2)
+// 				ft_write_width(p);
+// 		}
+// 	}
+// }
