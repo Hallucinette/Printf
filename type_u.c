@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_u.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/09 23:00:55 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/09 23:02:28 by amepocch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-void				ft_write_u(t_data *p)
+void	ft_write_u(t_data *p)
 {
 	unsigned int	num;
 	int				nb;
@@ -20,13 +32,12 @@ void				ft_write_u(t_data *p)
 	}
 	else
 	{
-		if(p->precision >= p->width)
+		if (p->precision >= p->width)
 			ft_print_pre(p, num);
 		else
 			ft_write_u2(p, num);
 	}
 }
-
 
 void	ft_write_u2(t_data *p, long num)
 {

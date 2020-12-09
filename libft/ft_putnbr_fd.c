@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 22:40:04 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/02 00:33:45 by amepocch         ###   ########.fr       */
+/*   Created: 2020/12/09 23:24:06 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/09 23:25:23 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_putnbr_fd(long int n, int fd)
 {
-	int l;
-	long int save;
+	int			l;
+	long int	save;
 
 	l = 1;
 	save = n;

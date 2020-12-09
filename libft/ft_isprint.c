@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ameliepocchiolo <ameliepocchiolo@studen    +#+  +:+       +#+        */
+/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/16 16:39:16 by amepocch          #+#    #+#             */
-/*   Updated: 2020/10/13 04:21:50 by ameliepocch      ###   ########.fr       */
+/*   Created: 2020/12/09 23:30:20 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/09 23:31:10 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

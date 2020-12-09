@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 01:01:22 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/07 01:01:26 by amepocch         ###   ########.fr       */
+/*   Created: 2020/12/09 23:33:00 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/09 23:33:27 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				ft_intlen(long int n)
+int		ft_intlen(long int n)
 {
 	long int	len;
 
@@ -27,12 +27,12 @@ int				ft_intlen(long int n)
 	return (len);
 }
 
-
 int		ft_check_wp(t_data *p)
 {
-	int	tmp = 0;
+	int		tmp;
 
-	if(*p->format == '*')
+	tmp = 0;
+	if (*p->format == '*')
 	{
 		tmp = va_arg(p->list, int);
 		if (tmp < 0 && p->dot == 0)
@@ -51,15 +51,15 @@ int		ft_check_wp(t_data *p)
 			p->format++;
 		}
 	}
-	return(tmp);
+	return (tmp);
 }
 
 void	ft_write_width(t_data *p)
 {
 	p->size += p->width;
-	while(p->width > 0)
+	while (p->width > 0)
 	{
-		if (p->minZ == 1 && (p->precision < 0 || *p->format == 's')) // avant < 0
+		if (p->minZ == 1 && (p->precision < 0 || *p->format == 's'))
 			ft_putchar_fd('0', 1);
 		else
 			ft_putchar_fd(' ', 1);
@@ -72,7 +72,7 @@ void	ft_print_pre(t_data *p, long int num)
 	if (num < 0)
 		num = ft_num_neg(p, num);
 	p->precision = p->precision - ft_intlen(num);
-	while(p->precision > 0)
+	while (p->precision > 0)
 	{
 		p->size++;
 		ft_putchar_fd('0', 1);

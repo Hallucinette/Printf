@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   type_p.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/12/09 22:50:58 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/09 23:00:12 by amepocch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int					putnbr_base(unsigned long nbr, char *base, t_data *p)
+int		putnbr_base(unsigned long nbr, char *base, t_data *p)
 {
 	int				len;
 	unsigned long	power;
@@ -23,7 +35,7 @@ int					putnbr_base(unsigned long nbr, char *base, t_data *p)
 	return (len);
 }
 
-void		ft_write_p(t_data *p)
+void	ft_write_p(t_data *p)
 {
 	int		len;
 	long	addr;
@@ -45,7 +57,7 @@ void		ft_write_p(t_data *p)
 		ft_write_p2(p, len, addr);
 }
 
-void			ft_write_p2(t_data *p, int len, long addr)
+void	ft_write_p2(t_data *p, int len, long addr)
 {
 	if (p->precision >= p->width)
 	{
@@ -65,7 +77,7 @@ void			ft_write_p2(t_data *p, int len, long addr)
 		ft_write_p3(p, len, addr);
 }
 
-void			ft_write_p3(t_data *p, int len, long addr)
+void	ft_write_p3(t_data *p, int len, long addr)
 {
 	if (p->precision <= p->width)
 	{
@@ -73,8 +85,8 @@ void			ft_write_p3(t_data *p, int len, long addr)
 		if (p->precision >= len + 2)
 		{
 			p->width -= p->precision;
-			if(p->minZ == 1)
-			p->minZ = 0;
+			if (p->minZ == 1)
+				p->minZ = 0;
 		}
 		else
 		{
@@ -89,8 +101,7 @@ void			ft_write_p3(t_data *p, int len, long addr)
 	}
 }
 
-
-void			ft_write_p4(t_data *p, int len, long addr)
+void	ft_write_p4(t_data *p, int len, long addr)
 {
 	if (p->minZ != 1 || p->precision == 0)
 		write(1, "0x", 2);

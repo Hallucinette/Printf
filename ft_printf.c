@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 01:01:29 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/07 01:01:31 by amepocch         ###   ########.fr       */
+/*   Created: 2020/12/09 22:06:28 by amepocch          #+#    #+#             */
+/*   Updated: 2020/12/09 22:17:24 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ void	ft_params0(t_data *p)
 	p->type = '\0';
 	p->minZ = 0;
 }
+
 void	ft_check_flags(t_data *p)
 {
 	while (*p->format == '0' || *p->format == '-')
 	{
-		if(*p->format == '0' && p->minZ != 2)
+		if (*p->format == '0' && p->minZ != 2)
 			p->minZ = 1;
 		else
 			p->minZ = 2;
@@ -35,7 +36,7 @@ void	ft_check_flags(t_data *p)
 
 void	ft_check_t(t_data *p)
 {
-	if (*p->format == 'd' || *p->format == 'i' )
+	if (*p->format == 'd' || *p->format == 'i')
 		ft_write_d(p);
 	else if (*p->format == 'u')
 		ft_write_u(p);
@@ -66,7 +67,7 @@ void	ft_check_line(t_data *p)
 	ft_check_t(p);
 }
 
-int			ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	t_data	p;
 	int		size;
@@ -77,7 +78,7 @@ int			ft_printf(const char *format, ...)
 	p.format = (char *)format;
 	while (*p.format)
 	{
-		if(*p.format == '%' && *(p.format + 1))
+		if (*p.format == '%' && *(p.format + 1))
 		{
 			ft_check_line(&p);
 			size += p.size;
