@@ -29,7 +29,7 @@ void		ft_write_s(t_data *p)
 
 	string = va_arg(p->list, char *);
 	i = 0;
-	len = ft_check_is_Null(string);
+	len = ft_check_is_null(string);
 	if (len >= p->width && (len <= p->precision || p->precision < 0))
 	{
 		ft_putstr_fd(string, 1);
@@ -48,7 +48,7 @@ void		ft_write_s(t_data *p)
 	}
 }
 
-int			ft_check_is_Null(char *string)
+int			ft_check_is_null(char *string)
 {
 	int		len;
 
