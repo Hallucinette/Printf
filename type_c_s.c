@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   type_c_s.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 01:01:55 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 01:41:56 by amepocch         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 void		ft_write_c(t_data *p)
@@ -42,7 +30,6 @@ void		ft_write_s(t_data *p)
 	string = va_arg(p->list, char *);
 	i = 0;
 	len = ft_check_is_Null(string);
-
 	if (len >= p->width && (len <= p->precision || p->precision < 0))
 	{
 		ft_putstr_fd(string, 1);
@@ -61,7 +48,7 @@ void		ft_write_s(t_data *p)
 	}
 }
 
-int		ft_check_is_Null(char *string)
+int			ft_check_is_Null(char *string)
 {
 	int		len;
 
@@ -72,7 +59,7 @@ int		ft_check_is_Null(char *string)
 		string = "(null)";
 		len = ft_strlen(string);
 	}
-	return(len);
+	return (len);
 }
 
 void		ft_write_s2(t_data *p, int len, int i, char *string)
