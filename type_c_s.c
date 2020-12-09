@@ -6,7 +6,7 @@
 /*   By: amepocch <amepocch@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 01:01:55 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 01:40:13 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/09 01:41:56 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,7 @@ void		ft_write_s(t_data *p)
 	string = va_arg(p->list, char *);
 	i = 0;
 	len = ft_check_is_Null(string);
-	// if (string != NULL)
-	// 	len = ft_strlen(string);
-	// if (string == NULL)
-	// {
-	// 	string = "(null)";
-	// 	len = ft_strlen(string);
-	// }
+
 	if (len >= p->width && (len <= p->precision || p->precision < 0))
 	{
 		ft_putstr_fd(string, 1);
