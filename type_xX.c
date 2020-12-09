@@ -2,7 +2,7 @@
 
 void		ft_put_xX(t_data *p, int len)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if(*p->format == 'X')
@@ -16,9 +16,9 @@ void		ft_put_xX(t_data *p, int len)
 	write(1, &(p->resp), len);
 }
 
-void		ft_write_Xx(t_data *p)
+void				ft_write_Xx(t_data *p)
 {
-	int		len;
+	int				len;
 	unsigned int	nbr;
 
 	nbr = va_arg(p->list, unsigned int);

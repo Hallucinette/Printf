@@ -1,9 +1,9 @@
 #include "ft_printf.h"
 
-void	ft_write_u(t_data *p)
+void				ft_write_u(t_data *p)
 {
-	unsigned int  num;
-	int  nb;
+	unsigned int	num;
+	int				nb;
 
 	nb = va_arg(p->list, int);
 	if (nb < 0)

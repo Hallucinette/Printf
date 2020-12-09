@@ -4,13 +4,13 @@ int		ft_num_neg(t_data *p, int num)
 {
 	ft_putchar_fd('-', 1);
 	p->size++;
-        	num *= -1;
+			num *= -1;
 	return (num);
 }
 
 void	ft_write_d(t_data *p)
 {
-	int  num;
+	int	num;
 	num = va_arg(p->list, int);
 	if (ft_intlen(num) >= p->width && ft_intlen(num) >= p->precision)
 		{
