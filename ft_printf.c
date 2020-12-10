@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:06:28 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 22:17:24 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 02:24:00 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	ft_params0(t_data *p)
 	p->width = 0;
 	p->size = 0;
 	p->type = '\0';
-	p->minZ = 0;
+	p->minz = 0;
 }
 
 void	ft_check_flags(t_data *p)
 {
 	while (*p->format == '0' || *p->format == '-')
 	{
-		if (*p->format == '0' && p->minZ != 2)
-			p->minZ = 1;
+		if (*p->format == '0' && p->minz != 2)
+			p->minz = 1;
 		else
-			p->minZ = 2;
+			p->minz = 2;
 		p->format++;
 	}
 }
@@ -41,7 +41,7 @@ void	ft_check_t(t_data *p)
 	else if (*p->format == 'u')
 		ft_write_u(p);
 	else if (*p->format == 'X' || *p->format == 'x')
-		ft_write_Xx(p);
+		ft_write_x(p);
 	else if (*p->format == 'c' || *p->format == '%')
 		ft_write_c(p);
 	else if (*p->format == 's')

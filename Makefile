@@ -3,7 +3,7 @@ NAME = libftprintf.a
 SRCS =	ft_printf.c \
 		ft_width.c \
 		type_c_s.c \
-		type_xX.c \
+		type_x.c \
 		type_p.c \
 		type_d.c \
 		type_u.c
@@ -23,7 +23,7 @@ all:	${NAME}
 	${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}:${OBJS}
-		make -C libft 
+		make -C libft
 		ar rc ${NAME} libft/*.o ${OBJS}
 
 debug:

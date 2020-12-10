@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:33:00 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 23:33:27 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 02:24:28 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_check_wp(t_data *p)
 		tmp = va_arg(p->list, int);
 		if (tmp < 0 && p->dot == 0)
 		{
-			p->minZ = 2;
+			p->minz = 2;
 			tmp *= -1;
 		}
 		p->format++;
@@ -59,7 +59,7 @@ void	ft_write_width(t_data *p)
 	p->size += p->width;
 	while (p->width > 0)
 	{
-		if (p->minZ == 1 && (p->precision < 0 || *p->format == 's'))
+		if (p->minz == 1 && (p->precision < 0 || *p->format == 's'))
 			ft_putchar_fd('0', 1);
 		else
 			ft_putchar_fd(' ', 1);

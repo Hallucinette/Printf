@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:10:53 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/10 01:51:35 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 02:37:48 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void			ft_write_s(t_data *p);
 void			ft_write_s2(t_data *p, int len, int i, char *string);
 void			ft_write_d(t_data *p);
 void			ft_write_d2(t_data *p, int num);
+void			ft_write_d3(t_data *p, int num);
 void			ft_write_x(t_data *p);
 void			ft_write_x2(t_data *p, int len, unsigned int nbr);
 void			ft_write_x3(t_data *p, int len, unsigned int nbr);

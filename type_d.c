@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:42:38 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/10 01:55:33 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 02:36:56 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,33 @@ void	ft_write_d(t_data *p)
 		}
 	}
 	else
-	{
-		if (p->precision >= p->width)
-			ft_print_pre(p, num);
-		else
-		{
-			if (ft_intlen(num) > p->precision &&
-					!(p->precision == 0 && num == 0))
-				p->width = (p->width - ft_intlen(num));
-			else
-				ft_write_d2(p, num);
-		}
-	}
+		ft_write_d2(p, num);
 }
 
 void	ft_write_d2(t_data *p, int num)
 {
-	p->width = (p->width - p->precision);
-	if (num < 0)
-		p->width--;
+	if (p->precision >= p->width)
+		ft_print_pre(p, num);
+	else
+	{
+		if (ft_intlen(num) > p->precision &&
+				!(p->precision == 0 && num == 0))
+			p->width = (p->width - ft_intlen(num));
+		else
+		{
+			p->width = (p->width - p->precision);
+			if (num < 0)
+				p->width--;
+		}
+		ft_write_d3(p, num);
+	}
+}
+
+void	ft_write_d3(t_data *p, int num)
+{
+	// p->width = (p->width - p->precision);
+	// if (num < 0)
+	// 	p->width--;
 	if (p->minz != 2)
 	{
 		if (num < 0 && p->minz == 1 && p->precision == -1)
