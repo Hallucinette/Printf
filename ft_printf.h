@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:10:53 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/10 01:35:33 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 01:51:35 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void			ft_write_u2(t_data *p, long num);
 void			ft_check_line(t_data *p);
 void			ft_check_t(t_data *p);
 void			ft_check_flags(t_data *p);
-int				ft_check_is_null(char *string);
 
 void			ft_write_width(t_data *p);
 

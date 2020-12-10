@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 01:50:56 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/10 01:42:03 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 01:51:09 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void		ft_write_s(t_data *p)
 
 	string = va_arg(p->list, char *);
 	i = 0;
-	len = ft_check_is_null(string);
+	if (string == NULL)
+		string = "(null)";
+	len = ft_strlen(string);
 	if (len >= p->width && (len <= p->precision || p->precision < 0))
 	{
 		ft_putstr_fd(string, 1);
@@ -58,20 +60,6 @@ void		ft_write_s(t_data *p)
 		else
 			ft_write_s2(p, len, i, string);
 	}
-}
-
-int			ft_check_is_null(char *string)
-{
-	int		len;
-
-	if (string != NULL)
-		len = ft_strlen(string);
-	if (string == NULL)
-	{
-		string = "(null)";
-		len = ft_strlen(string);
-	}
-	return (len);
 }
 
 void		ft_write_s2(t_data *p, int len, int i, char *string)
