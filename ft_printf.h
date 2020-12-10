@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:10:53 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 23:40:29 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 01:35:33 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct	s_data
 {
-	int		minZ;
+	int		minz;
 	int		dot;
 	char	type;
 	char	*format;
@@ -54,6 +54,7 @@ void			ft_write_u2(t_data *p, long num);
 void			ft_check_line(t_data *p);
 void			ft_check_t(t_data *p);
 void			ft_check_flags(t_data *p);
+int				ft_check_is_null(char *string);
 
 void			ft_write_width(t_data *p);
 
@@ -64,6 +65,6 @@ int				ft_num_neg(t_data *p, int num);
 
 void			ft_print_pre(t_data *p, long int num);
 int				putnbr_base(unsigned long nbr, char *base, t_data *p);
-void			ft_put_xX(t_data *p, int len);
+void			ft_put_x(t_data *p, int len);
 
 #endif

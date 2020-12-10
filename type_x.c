@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_xX.c                                          :+:      :+:    :+:   */
+/*   type_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 23:02:56 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 23:06:42 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 01:35:46 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_write_x(t_data *p)
 		if (!(p->precision == 0 && nbr == 0))
 		{
 			p->size += len;
-			ft_put_xX(p, len);
+			ft_put_x(p, len);
 		}
 	}
 	else
@@ -78,7 +78,7 @@ void	ft_write_x2(t_data *p, int len, unsigned int nbr)
 
 void	ft_write_x3(t_data *p, int len, unsigned int nbr)
 {
-	if (p->minZ != 2)
+	if (p->minz != 2)
 		ft_write_width(p);
 	while (p->precision > len)
 	{
@@ -89,6 +89,6 @@ void	ft_write_x3(t_data *p, int len, unsigned int nbr)
 		ft_putchar_fd(' ', 1);
 	else
 		ft_put_x(p, len);
-	if (p->minZ == 2)
+	if (p->minz == 2)
 		ft_write_width(p);
 }

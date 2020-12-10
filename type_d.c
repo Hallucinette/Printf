@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:42:38 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 22:48:44 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 00:40:13 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	ft_write_d(t_data *p)
 
 void	ft_write_d2(t_data *p, int num)
 {
-	if (p->minZ != 2)
+	if (p->minz != 2)
 	{
-		if (num < 0 && p->minZ == 1 && p->precision == -1)
+		if (num < 0 && p->minz == 1 && p->precision == -1)
 			num = ft_num_neg(p, num);
 		ft_write_width(p);
 	}
@@ -71,6 +71,6 @@ void	ft_write_d2(t_data *p, int num)
 			p->size += ft_intlen(num);
 		}
 	}
-	if (p->minZ == 2)
+	if (p->minz == 2)
 		ft_write_width(p);
 }

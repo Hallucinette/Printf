@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 01:50:56 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 01:51:25 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 01:42:03 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		ft_write_c(t_data *p)
 	p->precision = -1;
 	if (p->width > 0)
 		p->width--;
-	if (p->minZ != 2)
+	if (p->minz != 2)
 		ft_write_width(p);
 	if (*p->format == '%')
 		write(1, "%", 1);
@@ -29,7 +29,7 @@ void		ft_write_c(t_data *p)
 		write(1, &c, 1);
 	}
 	p->size++;
-	if (p->minZ == 2)
+	if (p->minz == 2)
 		ft_write_width(p);
 }
 
@@ -80,7 +80,7 @@ void		ft_write_s2(t_data *p, int len, int i, char *string)
 		p->width -= p->precision;
 	else
 		p->width = (p->width - len);
-	if (p->minZ != 2)
+	if (p->minz != 2)
 		ft_write_width(p);
 	if (p->precision < len && p->precision >= 0)
 	{
@@ -93,6 +93,6 @@ void		ft_write_s2(t_data *p, int len, int i, char *string)
 		ft_putstr_fd(string, 1);
 		p->size += len;
 	}
-	if (p->minZ == 2)
+	if (p->minz == 2)
 		ft_write_width(p);
 }

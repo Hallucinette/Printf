@@ -6,7 +6,7 @@
 /*   By: amepocch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 22:50:58 by amepocch          #+#    #+#             */
-/*   Updated: 2020/12/09 23:00:12 by amepocch         ###   ########.fr       */
+/*   Updated: 2020/12/10 00:40:14 by amepocch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,17 @@ void	ft_write_p3(t_data *p, int len, long addr)
 		if (p->precision >= len + 2)
 		{
 			p->width -= p->precision;
-			if (p->minZ == 1)
-				p->minZ = 0;
+			if (p->minz == 1)
+				p->minz = 0;
 		}
 		else
 		{
 			if (!(p->precision == 0 && addr == 0))
 				p->width -= len;
 		}
-		if (p->minZ == 1 && p->precision != 0)
+		if (p->minz == 1 && p->precision != 0)
 			write(1, "0x", 2);
-		if (p->minZ != 2)
+		if (p->minz != 2)
 			ft_write_width(p);
 		ft_write_p4(p, len, addr);
 	}
@@ -103,7 +103,7 @@ void	ft_write_p3(t_data *p, int len, long addr)
 
 void	ft_write_p4(t_data *p, int len, long addr)
 {
-	if (p->minZ != 1 || p->precision == 0)
+	if (p->minz != 1 || p->precision == 0)
 		write(1, "0x", 2);
 	p->size += 2;
 	if (p->precision > len)
@@ -122,6 +122,6 @@ void	ft_write_p4(t_data *p, int len, long addr)
 		write(1, &(p->resp), len);
 		p->size += len;
 	}
-	if (p->minZ == 2)
+	if (p->minz == 2)
 		ft_write_width(p);
 }
