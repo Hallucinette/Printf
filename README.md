@@ -3,11 +3,10 @@
 
 Bibliographie :
 
-printf :
-https://docs.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-160#see-also
-http://www.cplusplus.com/reference/cstdio/printf/
-https://c.developpez.com/cours/bernard-cassagne/node74.php
-
+printf : \n
+https://docs.microsoft.com/en-us/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-160#see-also \n
+http://www.cplusplus.com/reference/cstdio/printf/ \n
+https://c.developpez.com/cours/bernard-cassagne/node74.php \n
 Va list :
 
 https://koor.fr/C/cstdarg/va_list.wp
