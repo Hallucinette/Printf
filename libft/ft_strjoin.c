@@ -30,14 +30,14 @@ static char	*ft_strcat(char *str1, char *str2)
 
 char		*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
+//	int		i;
 	int		total_size;
 	char	*new;
 
 	if (!s1 || !s2)
 		return (NULL);
 	total_size = ft_strlen(s1) + ft_strlen(s2);
-	i = 0;
+//	i = 0;
 	if (!(new = malloc(total_size + 1)))
 		return (NULL);
 	new[0] = '\0';
